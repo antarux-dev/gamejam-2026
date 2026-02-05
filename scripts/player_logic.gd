@@ -24,6 +24,7 @@ func _process(_delta: float) -> void:
 	
 func _physics_process(_delta: float) -> void:
 	move_and_slide();
+	print(sprite.scale)
 	pass;
 	
 func SetDirection() -> bool:
@@ -48,9 +49,9 @@ func SetDirection() -> bool:
 	cardinal_direction = new_dir;
 	
 	if cardinal_direction == Vector2.LEFT:
-		sprite.scale.x = -1;
+		sprite.scale.x = -2;
 	else:
-		sprite.scale.x = 1;
+		sprite.scale.x = 2;
 	
 	
 	return true;

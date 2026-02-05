@@ -3,10 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bqhvkup6pie5v" path="res://assets/Player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://43uxr18stmha" path="res://scripts/player_logic.gd" id="1_g2els"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
-radius = 8.0
-height = 25.0
-
 [sub_resource type="Animation" id="Animation_g2els"]
 length = 0.001
 tracks/0/type = "value"
@@ -132,18 +128,23 @@ _data = {
 &"walk_up": SubResource("Animation_smehm")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(11.764707, 16.470589)
+
 [node name="Player" type="CharacterBody2D" unique_id=180648449]
 script = ExtResource("1_g2els")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1343940040]
-position = Vector2(0, -12)
-shape = SubResource("CapsuleShape2D_onrkg")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=764493048]
-position = Vector2(0, -16)
+position = Vector2(1, -31)
+scale = Vector2(2, 2)
 texture = ExtResource("1_4flbx")
 hframes = 10
 vframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1068836434]
 libraries/ = SubResource("AnimationLibrary_tuyoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1343940040]
+position = Vector2(0.9999999, -13)
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_g2els")
