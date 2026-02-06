@@ -4,6 +4,8 @@ static var can_move: bool = false
 
 static var LocalPlayer = null
 
+static var FUCKING_ROOM_LOOP = false;
+
 static func GetMove() -> bool:
 	return can_move
 	

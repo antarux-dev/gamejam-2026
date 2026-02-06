@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://drhaaitups32j"]
 
 [ext_resource type="Texture2D" uid="uid://yrxjm06px87u" path="res://assets/Modern tiles_Free/Interiors_free/32x32/1_Room_Builder_Office/Room_Builder_Office_32x32.png" id="1_sf7up"]
-[ext_resource type="Script" uid="uid://dwks26cqidrb8" path="res://scenes/room_1.gd" id="1_xhlaj"]
+[ext_resource type="Script" uid="uid://dwks26cqidrb8" path="res://scripts/room_1.gd" id="1_xhlaj"]
 [ext_resource type="Texture2D" uid="uid://djnv4u7660kpw" path="res://assets/Modern tiles_Free/Interiors_free/32x32/Room_Builder_free_32x32.png" id="2_xhlaj"]
 [ext_resource type="Texture2D" uid="uid://c5baw6icqbnl6" path="res://assets/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" id="3_bj4ne"]
 [ext_resource type="Texture2D" uid="uid://b414qhvaud5tk" path="res://assets/Modern tiles_Free/Interiors_free/32x32/2_Modern_Office_Black_Shadow/Modern_Office_Black_Shadow_32x32.png" id="4_hwyyj"]
@@ -11106,7 +11106,7 @@ tile_map_data = PackedByteArray("AAAHAPb/AwAWABYAAAAHAPf/AwAWABcAAAAHAPj/AwAWABg
 tile_set = SubResource("TileSet_bju5w")
 
 [node name="Door1" type="TileMapLayer" parent="Room1" unique_id=911176765]
-modulate = Color(0.9397121, 0.33938017, 0.33938017, 1)
+modulate = Color(0.9411765, 0.34117648, 0.34117648, 1)
 tile_map_data = PackedByteArray("AAAKAPX/AAAOABMAAAALAPX/AAAPABMAAAALAPT/AAAPABIAAAALAPP/AAAPABEAAAAKAPP/AAAOABEAAAAKAPT/AAAOABIAAAA=")
 tile_set = SubResource("TileSet_t64ac")
 
