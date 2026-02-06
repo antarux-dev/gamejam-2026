@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cwqspp14am5eu" path="res://scenes/game_intro.tscn" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dfj3fl6ejphd" path="res://scenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bntwyty1xxpp5" path="res://scenes/dialogue_system.tscn" id="3_lbhrr"]
+[ext_resource type="AudioStream" uid="uid://fbdm6fsc6ohl" path="res://assets/music.mp3" id="4_lbhrr"]
 
 [node name="Node2D" type="Node2D" unique_id=572378975]
 
@@ -11,6 +12,7 @@ position = Vector2(-24, 21)
 
 [node name="Player" parent="." unique_id=180648449 instance=ExtResource("2_yqjtg")]
 position = Vector2(-23, 16)
+collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=770224462]
 position = Vector2(0, -100)
@@ -18,3 +20,8 @@ zoom = Vector2(2, 2)
 
 [node name="DialogueSystem" parent="." unique_id=2082468134 instance=ExtResource("3_lbhrr")]
 layer = 3
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1921009885]
+stream = ExtResource("4_lbhrr")
+volume_db = -5.0
+autoplay = true

@@ -30,6 +30,9 @@ func load_dialogues():
 # --- HLAVNÁ FUNKCIA NA SPUSTENIE DIALÓGU ZVONKU ---
 #ids: pole IDčiek, napr. [1] alebo [2, 3]
 func start_sequence(ids: Array):
+	var bg_music = get_node("/root/game/BackgroundMusic") # Cesta k tvojej hudbe
+	if bg_music:
+		bg_music.volume_db = -30
 	if self.visible: 
 		return # Ak už niečo hrá, ignorujeme nové požiadavky
 	
@@ -38,8 +41,11 @@ func start_sequence(ids: Array):
 	_play_next_in_queue()
 
 func _play_next_in_queue():
+	var bg_music = get_node("/root/game/BackgroundMusic")
 	if dialogue_queue.is_empty():
-		self.hide() # Ak už nie sú žiadne dialógy vo fronte, skryjeme systém
+		self.hide()
+		if bg_music:
+			bg_music.volume_db = -5
 		return
 	
 	var next_id = str(dialogue_queue.pop_front()) # Vyberieme prvé ID z fronty
