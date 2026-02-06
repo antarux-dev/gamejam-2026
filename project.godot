@@ -16,7 +16,12 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom_font="uid://dd4gau1tyb3co"
 
 [input]
 
