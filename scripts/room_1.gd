@@ -8,11 +8,6 @@ var is_at_door_green = false
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 @onready var level_container = $"."
 
 func load_level(level_scene_path: String):
@@ -51,6 +46,6 @@ func _on_blue_door_body_exited(body: Node2D) -> void:
 func _input(event):
 	# Ak sme pri dverách a hráč stlačí klávesu E
 	if is_at_door_green and event.is_action_pressed("interact"): 
-		$"../Player".velocity = Vector2.ZERO
-		$"../Player".global_position = Vector2(-30, 40) 
+		Globals.LocalPlayer.velocity = Vector2.ZERO
+		Globals.LocalPlayer.global_position = Vector2(-30, 40)
 		load_level("res://scenes/room_door.tscn")
