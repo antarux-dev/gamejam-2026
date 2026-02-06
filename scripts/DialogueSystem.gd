@@ -52,7 +52,7 @@ func start_sequence(ids: Array):
 	# Stíšenie hudby (ak existuje)
 	var bg_music = get_node_or_null("/root/game/BackgroundMusic")
 	if bg_music:
-		bg_music.volume_db = -30
+		bg_music.volume_db = -60
 	
 	# Povieme hráčovi, aby zastavil
 	dialogue_started.emit()
@@ -150,7 +150,7 @@ func _close_dialogue_system():
 	# Vrátenie hudby do normálu
 	var bg_music = get_node_or_null("/root/game/BackgroundMusic")
 	if bg_music:
-		bg_music.volume_db = -5
+		bg_music.volume_db = -20
 		
 	# Hráč sa môže znova hýbať
 	dialogue_finished.emit()

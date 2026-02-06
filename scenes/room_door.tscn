@@ -45,6 +45,19 @@ func _input(event):
 		load_level(\"res://scenes/Room1.tscn\")
 		Globals.FUCKING_ROOM_LOOP = true
 		
+
+
+func _on_recepcia_trigger_body_entered(body: Node2D) -> void:
+	if body.name == \"Player\" and Globals.loop_room_counter == false:
+		Globals.loop_room_counter = true
+		DialogueSystem.start_sequence([8, 9])
+		$RecepciaTrigger.queue_free()
+
+
+func _on_recepcia_trigger_2_body_entered(body: Node2D) -> void:
+	if body.name == \"Player\" and Globals.loop_room_counter == true:
+		DialogueSystem.start_sequence([12, 13])
+		$RecepciaTrigger2.queue_free()
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ju70"]
@@ -23967,6 +23980,8 @@ border_color = Color(0, 0, 0, 1)
 texture = SubResource("CanvasTexture_08u2r")
 modulate_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcjoi"]
+
 [node name="Node2D" type="Node2D" unique_id=757592235]
 position = Vector2(-15, 0)
 script = SubResource("GDScript_jcjoi")
@@ -24016,5 +24031,25 @@ vertical_alignment = 1
 paragraph_separator = " "
 text_overrun_behavior = 1
 
+[node name="RecepciaTrigger" type="Area2D" parent="." unique_id=966635639]
+position = Vector2(33, 73)
+scale = Vector2(1.3568075, 1.0289015)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RecepciaTrigger" unique_id=409880999]
+position = Vector2(-1.4740486, -71.92137)
+scale = Vector2(7.746673, 4.022367)
+shape = SubResource("CircleShape2D_jcjoi")
+
+[node name="RecepciaTrigger2" type="Area2D" parent="." unique_id=988260862]
+position = Vector2(33, 72)
+scale = Vector2(1.3568075, 1.0289015)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RecepciaTrigger2" unique_id=1963661766]
+position = Vector2(-1.4740486, -71.92137)
+scale = Vector2(7.746673, 4.022367)
+shape = SubResource("CircleShape2D_jcjoi")
+
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="Door" to="." method="_on_door_body_exited"]
+[connection signal="body_entered" from="RecepciaTrigger" to="." method="_on_recepcia_trigger_body_entered"]
+[connection signal="body_entered" from="RecepciaTrigger2" to="." method="_on_recepcia_trigger_2_body_entered"]

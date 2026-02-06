@@ -11096,6 +11096,8 @@ modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i1w2g"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhlaj"]
+
 [node name="Room1" type="Node2D" unique_id=727619741]
 position = Vector2(0, 1)
 script = ExtResource("1_xhlaj")
@@ -11171,7 +11173,17 @@ vertical_alignment = 1
 paragraph_separator = " "
 text_overrun_behavior = 1
 
+[node name="RecepciaTrigger" type="Area2D" parent="." unique_id=225925418]
+position = Vector2(3, 49)
+scale = Vector2(1.3568075, 1.0289015)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RecepciaTrigger" unique_id=1521427481]
+position = Vector2(-1.4740486, -71.92137)
+scale = Vector2(7.746673, 4.022367)
+shape = SubResource("CircleShape2D_xhlaj")
+
 [connection signal="body_entered" from="RedDoor" to="." method="_on_red_door_body_entered"]
 [connection signal="body_exited" from="RedDoor" to="." method="_on_red_door_body_exited"]
 [connection signal="body_entered" from="BlueDoor" to="." method="_on_blue_door_body_entered"]
 [connection signal="body_exited" from="BlueDoor" to="." method="_on_blue_door_body_exited"]
+[connection signal="body_entered" from="RecepciaTrigger" to="." method="_on_recepcia_trigger_body_entered"]

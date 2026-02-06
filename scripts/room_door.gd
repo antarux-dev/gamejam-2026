@@ -44,10 +44,10 @@ func _input(event):
 	if Globals.FUCKING_ROOM_LOOP and is_at_door and event.is_action_pressed("interact"):
 		print(2)
 		FakeSpawnTpPlayer(Vector2(0, 0))
-		load_level("res://scenes/final.tscn")
+		load_level("res://scenes/roomkey2.tscn")
 	elif is_at_door and event.is_action_pressed("interact"):
 		print(3)
 		FakeSpawnTpPlayer(Vector2(0, 0))
 		load_level("res://scenes/Room1.tscn")
 		Globals.FUCKING_ROOM_LOOP = true
-		
+	

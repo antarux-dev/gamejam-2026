@@ -17,3 +17,5 @@ static func GetPlayer():
 
 static func SetLocalPlayer(NewPLayer):
 	LocalPlayer = NewPLayer
+
+static var loop_room_counter = false

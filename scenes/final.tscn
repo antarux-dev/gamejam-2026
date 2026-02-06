@@ -1,9 +1,10 @@
-[gd_scene format=4 uid="uid://dgcgy3ljpaa50"]
+[gd_scene format=4 uid="uid://dl05q0ftfroqk"]
 
 [ext_resource type="Texture2D" uid="uid://bbvet0aypnaps" path="res://assets/Interiors_free/32x32/Interiors_free_32x32.png" id="1_2ksrq"]
+[ext_resource type="Script" uid="uid://dcyicr70uuek1" path="res://scripts/final.gd" id="1_3hs2o"]
 [ext_resource type="Texture2D" uid="uid://cvuowbpr4gxnr" path="res://assets/Interiors_free/32x32/Room_Builder_free_32x32.png" id="2_3hs2o"]
 [ext_resource type="Texture2D" uid="uid://yrxjm06px87u" path="res://assets/Modern tiles_Free/Interiors_free/32x32/1_Room_Builder_Office/Room_Builder_Office_32x32.png" id="3_dqvmu"]
-[ext_resource type="Script" uid="uid://caralhwdaxwc5" path="res://scripts/refresh_tittles.gd" id="4_xxe6l"]
+[ext_resource type="Script" uid="uid://bm5q2jy71lekl" path="res://scripts/refresh_tittles.gd" id="4_xxe6l"]
 [ext_resource type="Texture2D" uid="uid://c5baw6icqbnl6" path="res://assets/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" id="5_vf3a0"]
 [ext_resource type="Texture2D" uid="uid://b414qhvaud5tk" path="res://assets/Modern tiles_Free/Interiors_free/32x32/2_Modern_Office_Black_Shadow/Modern_Office_Black_Shadow_32x32.png" id="6_30t23"]
 
@@ -16028,7 +16029,10 @@ texture = ExtResource("6_30t23")
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_tm14p")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqvmu"]
+
 [node name="Final" type="Node2D" unique_id=1805892524]
+script = ExtResource("1_3hs2o")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=374454137]
 tile_map_data = PackedByteArray("AAAKAPj/AgAAABYAAAAKAPn/AgAAABcAAAAKAPr/AgAAABgAAAAKAPv/AgAAABkAAAALAPj/AgABABYAAAALAPn/AgABABcAAAALAPr/AgABABgAAAALAPv/AgABABkAAAAMAPj/AgACABYAAAAMAPn/AgACABcAAAAMAPr/AgACABgAAAAMAPv/AgACABkAAAANAPj/AgADABYAAAANAPn/AgADABcAAAANAPr/AgADABgAAAANAPv/AgADABkAAAAOAPj/AgAEABYAAAAOAPn/AgAEABcAAAAOAPr/AgAEABgAAAAOAPv/AgAEABkAAAAPAPj/AgAFABYAAAAPAPn/AgAFABcAAAAPAPr/AgAFABgAAAAPAPv/AgAFABkAAAAKAPz/AgAUAA4AAAAKAP3/AgAUAA8AAAAKAP7/AgAUABAAAAAKAP//AgAUABEAAAALAPz/AgAVAA4AAAALAP3/AgAVAA8AAAALAP7/AgAVABAAAAALAP//AgAVABEAAAAMAPz/AgAWAA4AAAAMAP3/AgAWAA8AAAAMAP7/AgAWABAAAAAMAP//AgAWABEAAAANAPz/AgAXAA4AAAANAP3/AgAXAA8AAAANAP7/AgAXABAAAAANAP//AgAXABEAAAAOAPz/AgAYAA4AAAAOAP3/AgAYAA8AAAAOAP7/AgAYABAAAAAOAP//AgAYABEAAAAPAPz/AgAZAA4AAAAPAP3/AgAZAA8AAAAPAP7/AgAZABAAAAAPAP//AgAZABEAAAAJAPj/AgAPAAIAAAAJAPn/AgAPAAMAAAAJAPr/AgAPAAQAAAAJAPv/AgAPAAUAAAAQAPj/AgASAAIAAAAQAPn/AgASAAMAAAAQAPr/AgASAAQAAAAQAPv/AgASAAMAAAAQAP3/AgASAAMAAAAQAP7/AgASAAQAAAAQAP//AgASAAUAAAAQAAAAAgASAAYAAAAQAPz/AgASAAQAAAAJAP3/AgAPAAQAAAAJAP7/AgAPAAQAAAAJAP//AgAPAAUAAAAJAAAAAgAPAAYAAAAJAPz/AgAPAAMAAAAKAAAAAgAQAAYAAAALAAAAAgARAAYAAAAMAAAAAgAQAAAAAAANAAAAAgARAAAAAAAOAAAAAgAQAAYAAAAPAAAAAgARAAYAAAA=")
@@ -16048,3 +16052,14 @@ tile_set = SubResource("TileSet_3a8fg")
 tile_map_data = PackedByteArray("AAANAP3/AAAYAFcAAAANAP7/AAAYAFgAAAANAP//AAAYAFkAAAAOAPz/AAAZAFYAAAAOAP3/AAAZAFcAAAAOAP7/AAAZAFgAAAAOAP//AAAZAFkAAAAMAPv/AAAcACMAAAAMAPz/AAAcACQAAAANAPv/AAAdACMAAAANAPz/AAAdACQAAAA=")
 tile_set = SubResource("TileSet_jpiy6")
 script = ExtResource("4_xxe6l")
+
+[node name="RecepciaTrigger" type="Area2D" parent="." unique_id=873308549]
+position = Vector2(209, 37.000004)
+scale = Vector2(1.3568075, 1.0289015)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RecepciaTrigger" unique_id=155817023]
+position = Vector2(-1.4740486, -71.92137)
+scale = Vector2(7.746673, 4.022367)
+shape = SubResource("CircleShape2D_dqvmu")
+
+[connection signal="body_entered" from="RecepciaTrigger" to="." method="_on_recepcia_trigger_body_entered"]
