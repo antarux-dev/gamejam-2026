@@ -14,6 +14,10 @@ config/name="GameJam26"
 run/main_scene="uid://dkxg57ue8jdsg"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[autoload]
+
+DialogueSystem="*uid://bntwyty1xxpp5"
+
 [display]
 
 window/size/resizable=false

@@ -1,104 +1,128 @@
 extends CanvasLayer
 
+# Signály pre komunikáciu s hráčom a hrou
+signal dialogue_started
+signal dialogue_finished
+
 @onready var text_label = $Panel/RichTextLabel
 @onready var key_prompt = $Panel/Label
 @onready var audio_player = $AudioStreamPlayer
 
-var dialogues_dict = {}     # Slovník všetkých dialógov načítaných z JSONu
-var dialogue_queue = []    # Fronta IDčiek, ktoré sa majú postupne prehrať
-var target_key = ""
+var dialogues_dict = {}     # Všetky dáta z JSONu
+var dialogue_queue = []    # Poradie dialógov na prehratie
+var target_key = ""        # Aktuálna troll klávesa
 var is_waiting_for_key = false
+var is_active = false      # Poistka, aby nebežali dva dialógy naraz
 
 func _ready():
 	key_prompt.hide()
-	self.hide() # Systém je na začiatku skrytý
+	self.hide()
+	text_label.bbcode_enabled = true # Povolenie [b] tagov
 	load_dialogues()
+	
+	start_sequence([1])
 
 func load_dialogues():
 	var path = "res://assets/dialogs.json"
 	if FileAccess.file_exists(path):
 		var file = FileAccess.open(path, FileAccess.READ)
 		var data = JSON.parse_string(file.get_as_text())
-		# Prevedieme pole na slovník pre rýchle vyhľadávanie podľa ID
+		
+		if data == null:
+			printerr("Chyba: JSON súbor má nesprávny formát!")
+			return
+
 		for item in data:
+			# Ošetrenie ID (odstránenie .0 z floatov)
 			var id_key = str(int(item["id"]))
 			dialogues_dict[id_key] = item
-		print("Dialógy úspešne načítané.")
+		print("Dialógy úspešne načítané. Počet: ", dialogues_dict.size())
 	else:
 		printerr("JSON nebol nájdený na ceste: ", path)
 
-# --- HLAVNÁ FUNKCIA NA SPUSTENIE DIALÓGU ZVONKU ---
-#ids: pole IDčiek, napr. [1] alebo [2, 3]
+# --- SPUSTENIE SEKVENCIÍ ---
 func start_sequence(ids: Array):
-	var bg_music = get_node("/root/game/BackgroundMusic") # Cesta k tvojej hudbe
+	# Ak systém už pracuje, nové príkazy ignorujeme
+	if is_active: 
+		return 
+	
+	is_active = true
+	dialogue_queue = ids.duplicate()
+	
+	# Stíšenie hudby (ak existuje)
+	var bg_music = get_node_or_null("/root/game/BackgroundMusic")
 	if bg_music:
 		bg_music.volume_db = -30
-	if self.visible: 
-		return # Ak už niečo hrá, ignorujeme nové požiadavky
 	
-	dialogue_queue = ids.duplicate() # Skopírujeme IDčka do fronty
-	self.show() # Zobrazíme panel
+	# Povieme hráčovi, aby zastavil
+	dialogue_started.emit()
+	self.show()
 	_play_next_in_queue()
 
 func _play_next_in_queue():
-	var bg_music = get_node("/root/game/BackgroundMusic")
+	# Ak je fronta prázdna, vypíname systém
 	if dialogue_queue.is_empty():
-		self.hide()
-		if bg_music:
-			bg_music.volume_db = -5
+		_close_dialogue_system()
 		return
 	
-	var next_id = str(dialogue_queue.pop_front()) # Vyberieme prvé ID z fronty
+	var next_id = str(dialogue_queue.pop_front())
 	
 	if dialogues_dict.has(next_id):
+		Globals.SetMove(true)
 		_execute_dialogue(dialogues_dict[next_id])
 	else:
-		printerr("ID dialógu neexistuje: ", next_id)
-		_play_next_in_queue() # Skúsime ďalší, ak toto ID chýba
+		printerr("CHYBA: ID ", next_id, " v JSONe neexistuje!")
+		_play_next_in_queue()
 
 func _execute_dialogue(d):
-	# 1. AUDIO LOGIKA
+	Globals.SetMove(false)
+	# 1. NAČÍTANIE AUDIA
 	var v_path = d["voice"]
 	if v_path.begins_with("/"): v_path = v_path.erase(0, 1)
-	var full_voice_path = "res://assets/" + v_path
+	var full_path = "res://assets/" + v_path
 	
-	if FileAccess.file_exists(full_voice_path):
-		audio_player.stream = load(full_voice_path)
+	if FileAccess.file_exists(full_path):
+		audio_player.stream = load(full_path)
 		audio_player.play()
-	
-	# 2. TEXTOVÁ LOGIKA (Typewriter s okamžitým menom)
+	else:
+		printerr("Audio súbor nenájdený: ", full_path)
+		audio_player.stream = null
+
+	# 2. VÝPIS TEXTU
 	_display_text(d)
-	
-	# 3. SIGNÁLY
+
+	# 3. PRIPOJENIE SIGNÁLOV PODĽA TYPU
+	# Odpojíme staré prepojenia
 	if audio_player.finished.is_connected(_on_audio_finished): audio_player.finished.disconnect(_on_audio_finished)
 	if audio_player.finished.is_connected(_on_ambient_finished): audio_player.finished.disconnect(_on_ambient_finished)
 	
-	if d["type"] == "d":
+	if d["type"] == "d": # Dialóg (čaká na klávesu)
 		audio_player.finished.connect(_on_audio_finished)
-	else:
+	else: # Ambient (ide hneď ďalej)
 		audio_player.finished.connect(_on_ambient_finished)
 
 func _display_text(data):
 	var npc_name = str(data["npc"]).capitalize() + ": "
 	var raw_text = data["text"]
 	
+	# BBCode formátovanie
 	text_label.text = "[b]" + npc_name + "[/b]" + raw_text
 	
+	# Reset typewriter efektu
 	var name_length = npc_name.length()
 	var total_length = text_label.get_total_character_count()
-	
-	# Meno ukážeme hneď
 	text_label.visible_characters = name_length
 	
-	var audio_length = 2.0
+	# Výpočet trvania podľa audia
+	var duration = 2.0
 	if audio_player.stream:
-		audio_length = audio_player.stream.get_length()
+		duration = audio_player.stream.get_length()
 	
-	var tween_duration = max(0.2, audio_length - 0.1)
-	
+	# Animácia písania textu
 	var tween = create_tween()
-	tween.tween_property(text_label, "visible_characters", total_length, tween_duration)
+	tween.tween_property(text_label, "visible_characters", total_length, max(0, duration - 0))
 
+# --- UKONČENIE A LOGIKA KLÁVES ---
 func _on_audio_finished():
 	target_key = get_random_troll_key()
 	key_prompt.text = "STLAČ [" + target_key + "] PRE POKRAČOVANIE"
@@ -106,16 +130,9 @@ func _on_audio_finished():
 	is_waiting_for_key = true
 
 func _on_ambient_finished():
-	# Ambientné hlášky automaticky idú na ďalší dialóg vo fronte
+	# Počkáme sekundu a ideme na ďalší
+	await get_tree().create_timer(1.0).timeout
 	_play_next_in_queue()
-
-func get_random_troll_key() -> String:
-	var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-	var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-	var symbols = ["Space", "Enter", "Escape", "Comma", "Period", "Slash", "Minus", "Equal"]
-	
-	var pool = letters + numbers + symbols
-	return pool[randi() % pool.size()]
 
 func _unhandled_input(event):
 	if is_waiting_for_key and event is InputEventKey and event.pressed:
@@ -123,4 +140,26 @@ func _unhandled_input(event):
 		if pressed_key == target_key:
 			is_waiting_for_key = false
 			key_prompt.hide()
-			_play_next_in_queue() # Po úspešnom stlačení ideme na ďalší
+			_play_next_in_queue()
+
+func _close_dialogue_system():
+	self.hide()
+	is_active = false
+	Globals.SetMove(true)
+	
+	# Vrátenie hudby do normálu
+	var bg_music = get_node_or_null("/root/game/BackgroundMusic")
+	if bg_music:
+		bg_music.volume_db = -5
+		
+	# Hráč sa môže znova hýbať
+	dialogue_finished.emit()
+
+func get_random_troll_key() -> String:
+	var pool = [
+		"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
+		"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+		"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+		"Space", "Enter", "Shift"
+	]
+	return pool[randi() % pool.size()]

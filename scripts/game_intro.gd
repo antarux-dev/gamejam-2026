@@ -14,14 +14,10 @@ func _process(delta: float) -> void:
 
 func _on_recepcia_trigger_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		# Hľadáme DialogueSystem v "rodičovskej" scéne (game.tscn)
-		var ds = get_parent().get_node("DialogueSystem")
-		
-		if ds:
-			ds.start_sequence([2, 3, 4])
-			$RecepciaTrigger.queue_free()
-		else:
-			printerr("Chyba: DialogueSystem nebol nájdený v hlavnej scéne!")
+		DialogueSystem.start_sequence([2, 3, 4])
+		$RecepciaTrigger.queue_free()
+	else:
+		printerr("Chyba: DialogueSystem nebol nájdený v hlavnej scéne!")
 
 
 func _on_door_body_entered(body: Node2D) -> void:

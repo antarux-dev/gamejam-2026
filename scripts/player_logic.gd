@@ -9,9 +9,14 @@ var movement_state: String = "idle";
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer;
 @onready var sprite: Sprite2D = $Sprite2D;
-
+func _ready():
+	DialogueSystem.dialogue_started.connect(func(): Globals.can_move = false)
+	DialogueSystem.dialogue_finished.connect(func(): Globals.can_move = true)
+	
 # run service frame process
 func _process(_delta: float) -> void:
+	if not Globals.can_move:
+		return
 	direction.x = Input.get_action_strength("movement_right") - Input.get_action_strength("movement_left");
 	direction.y = Input.get_action_strength("movement_down") - Input.get_action_strength("movement_up");
 	
@@ -20,9 +25,14 @@ func _process(_delta: float) -> void:
 	if SetState() == true || SetDirection() == true:
 		UpdateAnimations();
 	pass;
-	
+
 	
 func _physics_process(_delta: float) -> void:
+	if not Globals.can_move:
+		direction = Vector2.ZERO # Vynulujeme smer
+		velocity = Vector2.ZERO  # Zastavíme fyziku
+		return
+	
 	move_and_slide();
 	print(sprite.scale)
 	pass;
