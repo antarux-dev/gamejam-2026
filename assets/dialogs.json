@@ -1,0 +1,164 @@
+[
+ {
+   "id": 1,
+   "text": "Vitaj v tejto skvelej hre! Si čerstvý absolvent vysokej školy a našiel si si túto skvelú robotu v IT office. Tvoja úloha je jednoduchá. Dostaň sa do officu a nič nepokaz. Dúfam, že si nespravíš hanbu ako obyčajne a že zvládneš aspoň zapnúť Windows. Aj keď ma to dva krát neteší, touto cestou ťa budem sprevádzať. Tak už nezdržuj. ",
+   "voice": "/audio/1.mp3",
+   "type": "d",
+   "room": "intro",
+   "npc": "operator",
+   "if": ""
+ },
+ {
+   "id": 2,
+   "text": "Aaaaa, ty si ten nový pracovník. Tvoja nová kancelária sa nachádza na 67. poschodí. Dostaneš sa tam výťahom. ",
+   "voice": "/audio/2.mp3",
+   "type": "d",
+   "room": "intro",
+   "npc": "receptionist",
+   "if": ""
+ },
+ {
+   "id": 3,
+   "text": "Ďakujem slečna.",
+   "voice": "/audio/3.mp3",
+   "type": "d",
+   "room": "intro",
+   "npc": "Róbert",
+   "if": ""
+ },
+ {
+   "id": 4,
+   "text": "Fuj, ten sa asi mesiac nesprchoval!",
+   "voice": "/audio/4.mp3",
+   "type": "a",
+   "room": "intro",
+   "npc": "receptionist",
+   "if": ""
+ },
+ {
+   "id": 5,
+   "text": "Tu, nech sa deje čokoľvek, nechoď do červených dverí. Zelené sú správne.",
+   "voice": "/audio/5.mp3",
+   "type": "a",
+   "room": "room1",
+   "npc": "operator",
+   "if": ""
+ },
+ {
+   "id": 6,
+   "text": "Vidím, že poslušnosťou zapadneš do systému. Dobrý chlapec!",
+   "voice": "/audio/6.mp3",
+   "type": "a",
+   "room": "room door",
+   "npc": "operator",
+   "if": "zelene"
+ },
+ {
+   "id": 7,
+   "text": "Myslel som si, že aspoň nebudeš farboslepý. Skúsme to znovu.",
+   "voice": "/audio/7.mp3",
+   "type": "a",
+   "room": "room1",
+   "npc": "operator",
+   "if": "červene"
+ },
+ {
+   "id": 8,
+   "text": "Vidíš tie počítače? Na nich budeš robiť do 70.",
+   "voice": "/audio/8.mp3",
+   "type": "a",
+   "room": "room door",
+   "npc": "operator",
+   "if": "zelene"
+ },
+ {
+   "id": 9,
+   "text": "No super. Ďalšia radosť vo mne.",
+   "voice": "/audio/9.mp3",
+   "type": "a",
+   "room": "room door",
+   "npc": "Róbert",
+   "if": ""
+ },
+ {
+   "id": 10,
+   "text": "Nie si vážne schopný ísť do zelených dverí? To ti ich mám aj otvoriť?",
+   "voice": "/audio/10.mp3",
+   "type": "a",
+   "room": "room1",
+   "npc": "operator",
+   "if": "pokus isť do červených dverí"
+ },
+ {
+   "id": 11,
+   "text": "Tvoje IQ je v záporných hodnotách. Povedal som zelené dvere!",
+   "voice": "/audio/11.mp3",
+   "type": "a",
+   "room": "room1",
+   "npc": "operator",
+   "if": "červene"
+ },
+ {
+   "id": 12,
+   "text": "Otrok systému za minimálnu mzdu. To je splnený sen!",
+   "voice": "/audio/12.mp3",
+   "type": "a",
+   "room": "room door",
+   "npc": "Róbert",
+   "if": "zelene"
+ },
+ {
+   "id": 13,
+   "text": "Proste diot.",
+   "voice": "/audio/13.mp3",
+   "type": "a",
+   "room": "room1",
+   "npc": "operator",
+   "if": "červene"
+ },
+ {
+   "id": 14,
+   "text": "Koniec srandy. Choď do tých zelených dverí. Možno tam nájdeš aj mozog.",
+   "voice": "/audio/14.mp3",
+   "type": "a",
+   "room": "room1",
+   "npc": "operator",
+   "if": "červene"
+ },
+ {
+   "id": 15,
+   "text": "Už si skoro tam, už len táto chodba!",
+   "voice": "/audio/15.mp3",
+   "type": "a",
+   "room": "room door",
+   "npc": "operator",
+   "if": "zelene posledne"
+ },
+ {
+   "id": 16,
+   "text": "Hmm. Tomu nerozumiem. Tu si už nemal byť. Zrejme si zasa niečo pokazil. Ako samozrejme všetko vo svojom mizernom živote. Ale čo teraz? Počkaj, musím pozrieť inštrukcie. Hups. Prepáč. Mal si ísť predsa do červených.",
+   "voice": "/audio/16.mp3",
+   "type": "d",
+   "room": "room1",
+   "npc": "operator",
+   "if": ""
+ },
+ {
+   "id": 17,
+   "text": "Čiže som mal stále pravdu a tvoje urážanie bolo bezpredmetné?",
+   "voice": "/audio/17.mp3",
+   "type": "d",
+   "room": "room1",
+   "npc": "Róbert",
+   "if": ""
+ },
+ {
+   "id": 18,
+   "text": "Pravdu si možno so šťastím mal, ale tvoja stupidita je stále ohromujúca. Choď už do tých dverí, preboha.",
+   "voice": "/audio/18.mp3",
+   "type": "d",
+   "room": "room1",
+   "npc": "operator",
+   "if": ""
+ }
+]
