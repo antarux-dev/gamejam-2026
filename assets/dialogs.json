@@ -238,125 +238,44 @@
    "text": "Hmmm. Krása. Keby si namiesto rozbíjania dverí najprv rozmýšľal tou tvojou tekvicou a vyskúšal si, či náhodou nie sú tie dvere otvorené. Ty si ale mentálny atlét.",
    "voice": "/audio/27.mp3",
    "type": "a",
-   "room": "room key2",
+   "room": "between1",
    "npc": "Operátor",
-   "if": "dotyk dveri"
+   "if": ""
  },
  {
    "id": 28,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
+   "text": "Tu prejdi dlhými knižnicami na koniec a do dverí. Tie knihy si môžeš prečítať, keď sa raz naučíš čítať. Ale to silno pochybujem že sa stane.",
+   "voice": "/audio/28.mp3",
+   "type": "a",
+   "room": "between1",
+   "npc": "Operátor",
    "if": ""
  },
  {
    "id": 29,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
+   "text": "Rozhodni sa. Jeden výťah ťa odvezie do tvojho vysnívaného officu. V ďalších dvoch stráviš mladosť.",
+   "voice": "/audio/29.mp3",
+   "type": "a",
+   "room": "between2",
+   "npc": "Operátor",
    "if": ""
  },
  {
    "id": 30,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
+   "text": "** Elevator music **",
+   "voice": "/audio/30.mp3",
+   "type": "d",
+   "room": "between2",
+   "npc": "Výťah",
    "if": ""
  },
  {
    "id": 31,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
-   "if": ""
- },
- {
-   "id": 32,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
-   "if": ""
- },
- {
-   "id": 33,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
-   "if": ""
- },
- {
-   "id": 34,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
-   "if": ""
- },
- {
-   "id": 35,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
-   "if": ""
- },
- {
-   "id": 36,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
-   "if": ""
- },
- {
-   "id": 37,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
-   "if": ""
- },
- {
-   "id": 38,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
-   "if": ""
- },
- {
-   "id": 39,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
-   "if": ""
- },
- {
-   "id": 40,
-   "text": "",
-   "voice": "",
-   "type": "",
-   "room": "",
-   "npc": "",
+   "text": "Vitaj. Dostal si sa do svojho vysnívaného officu. Dúfam, že si šťatný. Kľudne si sadni na túto krásnu ergonomickú stoličku, urob si pohodlie, daj si kávu, zapni Windows, otvor Word a začni dokola písať nezmyselné čísla a písmená, až do kým šéf nebude tak veľmi nadšený z tvojej zbytočnej existencie, že ti dá za tvoju pracovitosť jeden deň voľna, počas ktorého si ani neoddýchneš. Tomu hovorím krásny a šťastný život. No, ale stále je to lepšie jak si mal doteraz. Takže užívaj!",
+   "voice": "/audio/31.mp3",
+   "type": "a",
+   "room": "final",
+   "npc": "Operátor",
    "if": ""
  }
 ]
