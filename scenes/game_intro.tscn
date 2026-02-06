@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bm5q2jy71lekl" path="res://scripts/refresh_tittles.gd" id="3_xo3go"]
 [ext_resource type="Texture2D" uid="uid://dupq7fyujlfxh" path="res://assets/Modern tiles_Free/Characters_free/Amelia_idle_16x16.png" id="5_xcwot"]
 [ext_resource type="Texture2D" uid="uid://b3niksf7or5a4" path="res://assets/Modern tiles_Free/Characters_free/Amelia_16x16.png" id="6_vov6y"]
-[ext_resource type="PackedScene" uid="uid://dfj3fl6ejphd" path="res://scenes/player.tscn" id="7_vov6y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_1h1ds")
@@ -15706,10 +15705,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 paragraph_separator = " "
 text_overrun_behavior = 1
-
-[node name="Player" parent="." unique_id=180648449 instance=ExtResource("7_vov6y")]
-position = Vector2(2, -2)
-collision_mask = 2
 
 [connection signal="body_entered" from="RecepciaTrigger" to="." method="_on_recepcia_trigger_body_entered"]
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

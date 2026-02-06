@@ -38,8 +38,10 @@ func _ready() -> void:
 	for panel in [$Control/Menu/ColorRec, $Control/HUD/ColorRec, $Control/Pause/ColorRec]:
 		if panel is ColorRect:
 			panel.anchor_right   = 1.0
+			panel.anchor_top   = 1.0
 			panel.anchor_bottom  = 1.0
 			panel.offset_right   = 0
+			panel.offset_top   = 0
 			panel.offset_bottom  = 0
 
 
