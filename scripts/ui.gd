@@ -35,6 +35,14 @@ func _ready() -> void:
 	
 	_startanimation()
 	
+	$Control.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	# Prilepí HUD do pravého horného rohu
+	hud.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
+	# Odstupy od okrajov (uprav si čísla podľa potreby)
+	hud.offset_left = -1200   # Posun doľava, aby bol HUD vidieť
+	hud.offset_right = -10   # Malá medzera od pravého okraja
+	hud.offset_top = 10      # Malá medzera od horného okraja
+	
 	for panel in [$Control/Menu/ColorRec, $Control/HUD/ColorRec, $Control/Pause/ColorRec]:
 		if panel is ColorRect:
 			panel.anchor_right   = 1.0
