@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c5baw6icqbnl6" path="res://assets/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" id="3_bj4ne"]
 [ext_resource type="Script" uid="uid://bm5q2jy71lekl" path="res://scripts/refresh_tittles.gd" id="3_xhlaj"]
 [ext_resource type="Texture2D" uid="uid://b414qhvaud5tk" path="res://assets/Modern tiles_Free/Interiors_free/32x32/2_Modern_Office_Black_Shadow/Modern_Office_Black_Shadow_32x32.png" id="4_hwyyj"]
+[ext_resource type="PackedScene" uid="uid://dfj3fl6ejphd" path="res://scenes/player.tscn" id="6_bj4ne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bc387"]
 texture = ExtResource("1_sf7up")
@@ -11106,3 +11107,8 @@ script = ExtResource("3_xhlaj")
 modulate = Color(0.19855352, 1.2498733, 0, 1)
 tile_map_data = PackedByteArray("AAAOAPP/AAAOABEAAAAOAPT/AAAOABIAAAAOAPX/AAAOABMAAAAPAPP/AAAPABEAAAAPAPT/AAAPABIAAAAPAPX/AAAPABMAAAA=")
 tile_set = SubResource("TileSet_t64ac")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=351590191]
+
+[node name="Player" parent="." unique_id=180648449 instance=ExtResource("6_bj4ne")]
+position = Vector2(1, -6)
