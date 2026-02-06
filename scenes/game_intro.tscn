@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cwqspp14am5eu"]
 
 [ext_resource type="Texture2D" uid="uid://cvuowbpr4gxnr" path="res://assets/Interiors_free/32x32/Room_Builder_free_32x32.png" id="1_1h1ds"]
+[ext_resource type="Script" uid="uid://dl6tpskothgs7" path="res://scenes/game_intro.gd" id="1_4assr"]
 [ext_resource type="Texture2D" uid="uid://bbvet0aypnaps" path="res://assets/Interiors_free/32x32/Interiors_free_32x32.png" id="2_4assr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
@@ -15246,8 +15247,11 @@ texture = ExtResource("2_4assr")
 [sub_resource type="TileSet" id="TileSet_kvuet"]
 sources/0 = SubResource("TileSetAtlasSource_dinhu")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xo3go"]
+
 [node name="Node2D" type="Node2D" unique_id=1888647212]
 position = Vector2(0, -2)
+script = ExtResource("1_4assr")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=116856980]
 position = Vector2(-176, -246)
@@ -15269,3 +15273,13 @@ tile_set = SubResource("TileSet_kvpfn")
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer/TileMapLayer/TileMapLayer/TileMapLayer" unique_id=1992414169]
 tile_map_data = PackedByteArray("AAAIAAMAAAAEACoAAAAIAAQAAAAEACsAAAAJAAMAAAAFACoAAAAJAAQAAAAFACsAAAAKAAMAAAAEACoAAAAKAAQAAAAEACsAAAALAAMAAAAFACoAAAALAAQAAAAFACsAAAAMAAMAAAAEACoAAAAMAAQAAAAEACsAAAANAAMAAAAFACoAAAANAAQAAAAFACsAAAAQAAMAAAAEACoAAAAQAAQAAAAEACsAAAAFAAMAAAAFACoAAAAFAAQAAAAFACsAAAAIAAkAAAAGAA4AAAAIAAoAAAAAABAAAAAIAAsAAAAAABEAAAAJAAkAAAAHAA4AAAAJAAoAAAABABAAAAAJAAsAAAABABEAAAAKAAkAAAAGABEAAAAKAAoAAAAGABIAAAAKAAsAAAACABEAAAALAAkAAAAHABEAAAALAAoAAAAHABIAAAALAAsAAAADABEAAAAMAAkAAAAEAA8AAAAMAAoAAAAEABAAAAAMAAsAAAAEABEAAAANAAkAAAAFAA8AAAANAAoAAAAFABAAAAANAAsAAAAFABEAAAAIAAwAAAAAABIAAAAJAAwAAAABABIAAAAKAAwAAAACABIAAAALAAwAAAADABIAAAAMAAwAAAAEABIAAAANAAwAAAAFABIAAAAOAAsAAAAUAFoAAAARAAsAAAAXAFoAAAAHAAsAAAAXAFoAAAAEAA0AAAAUAFoAAAAFAAwAAAAVAFkAAAAFAA0AAAAVAFoAAAAFAA4AAAAVAFsAAAAFAA8AAAAVAFwAAAAGAAwAAAAWAFkAAAAGAA0AAAAWAFoAAAAGAA4AAAAWAFsAAAAGAA8AAAAWAFwAAAAHAA0AAAAXAFoAAAAOAA0AAAAUAFoAAAAPAAwAAAAVAFkAAAAPAA0AAAAVAFoAAAAPAA4AAAAVAFsAAAAPAA8AAAAVAFwAAAAQAAwAAAAWAFkAAAAQAA0AAAAWAFoAAAAQAA4AAAAWAFsAAAAQAA8AAAAWAFwAAAARAA0AAAAXAFoAAAAFAP//AAAaAFgAAAAFAAAAAAAaAFkAAAAGAP//AAAbAFgAAAAGAAAAAAAbAFkAAAAGAAEAAAAbAFoAAAAGAAIAAAAbAFsAAAAHAP//AAAcAFgAAAAHAAAAAAAcAFkAAAAHAAEAAAAcAFoAAAAHAAIAAAAcAFsAAAAIAP//AAAdAFgAAAAIAAAAAAAdAFkAAAANAP//AAAaAFgAAAANAAAAAAAaAFkAAAAOAP//AAAbAFgAAAAOAAAAAAAbAFkAAAAOAAEAAAAbAFoAAAAOAAIAAAAbAFsAAAAPAP//AAAcAFgAAAAPAAAAAAAcAFkAAAAPAAEAAAAcAFoAAAAPAAIAAAAcAFsAAAAQAP//AAAdAFgAAAAQAAAAAAAdAFkAAAA=")
 tile_set = SubResource("TileSet_kvuet")
+
+[node name="RecepciaTrigger" type="Area2D" parent="." unique_id=1491696599]
+scale = Vector2(1.3568075, 1.0289015)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RecepciaTrigger" unique_id=527891686]
+position = Vector2(-1.4740486, -71.92137)
+scale = Vector2(7.292903, 2.045827)
+shape = SubResource("CircleShape2D_xo3go")
+
+[connection signal="body_entered" from="RecepciaTrigger" to="." method="_on_recepcia_trigger_body_entered"]

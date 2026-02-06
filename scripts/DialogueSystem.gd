@@ -21,7 +21,8 @@ func load_dialogues():
 		var data = JSON.parse_string(file.get_as_text())
 		# Prevedieme pole na slovník pre rýchle vyhľadávanie podľa ID
 		for item in data:
-			dialogues_dict[str(item["id"])] = item
+			var id_key = str(int(item["id"]))
+			dialogues_dict[id_key] = item
 		print("Dialógy úspešne načítané.")
 	else:
 		printerr("JSON nebol nájdený na ceste: ", path)
