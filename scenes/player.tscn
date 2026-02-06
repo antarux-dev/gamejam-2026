@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bqhvkup6pie5v" path="res://assets/Player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://43uxr18stmha" path="res://scripts/player_logic.gd" id="1_g2els"]
-[ext_resource type="Script" uid="uid://botpf6fx4xdog" path="res://scenes/camera_logic.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://botpf6fx4xdog" path="res://camera_logic.gd" id="3_qhqgy"]
 
 [sub_resource type="Animation" id="Animation_g2els"]
 length = 0.001

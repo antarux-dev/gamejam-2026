@@ -4,6 +4,33 @@
 [ext_resource type="Texture2D" uid="uid://bbvet0aypnaps" path="res://assets/Interiors_free/32x32/Interiors_free_32x32.png" id="2_bv257"]
 [ext_resource type="Texture2D" uid="uid://dt2ca80kygagp" path="res://assets/2_Modern_Office_Black_Shadow/Modern_Office_Black_Shadow_32x32.png" id="3_lj34g"]
 
+[sub_resource type="GDScript" id="GDScript_jcjoi"]
+script/source = "extends Node2D
+
+var is_at_door = false
+@onready var e_prompt = $Door/EPrompt
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_door_body_entered(body: Node2D) -> void:
+	if body.name == \"Player\":
+		is_at_door = true
+		e_prompt.show() # Zobrazíme nápis [E]
+
+
+func _on_door_body_exited(body: Node2D) -> void:
+	if body.name == \"Player\":
+		is_at_door = false
+		e_prompt.hide()
+"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ju70"]
 texture = ExtResource("1_jcjoi")
 11:0/0 = 0
@@ -23908,8 +23935,25 @@ texture = ExtResource("2_bv257")
 sources/0 = SubResource("TileSetAtlasSource_p3fnh")
 sources/1 = SubResource("TileSetAtlasSource_3aomv")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lj34g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ju70"]
+bg_color = Color(0.99999994, 0.88459533, 0.75750995, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_08u2r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fn6bp"]
+texture = SubResource("CanvasTexture_08u2r")
+modulate_color = Color(0, 0, 0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=757592235]
 position = Vector2(-15, 0)
+script = SubResource("GDScript_jcjoi")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1597980032]
 position = Vector2(22, -1)
@@ -23932,3 +23976,29 @@ tile_set = SubResource("TileSet_yd8cd")
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer2/TileMapLayer/TileMapLayer" unique_id=264461469]
 tile_map_data = PackedByteArray("AAADAAQAAAAWACoAAAADAAUAAAAWACsAAAADAAYAAAAUACIAAAAEAAQAAAAXACoAAAAEAAUAAAAXACsAAAAEAAYAAAAVACIAAAAJAAQAAAAUACAAAAAJAAUAAAAUACEAAAAKAAQAAAAVACAAAAAKAAUAAAAVACEAAAAPAAQAAAAUACAAAAAPAAUAAAAUACEAAAAQAAQAAAAVACAAAAAQAAUAAAAVACEAAAAVAAQAAAAUACAAAAAVAAUAAAAUACEAAAAWAAQAAAAVACAAAAAWAAUAAAAVACEAAAAbAAQAAAAUACAAAAAbAAUAAAAUACEAAAAcAAQAAAAVACAAAAAcAAUAAAAVACEAAAAJAAYAAAAUACIAAAAKAAYAAAAVACIAAAAPAAYAAAAUACIAAAAQAAYAAAAVACIAAAAVAAYAAAAUACIAAAAWAAYAAAAVACIAAAAbAAYAAAAUACIAAAAcAAYAAAAVACIAAAA=")
 tile_set = SubResource("TileSet_la5h0")
+
+[node name="Door" type="Area2D" parent="." unique_id=2003884952]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=35380823]
+position = Vector2(489, 0)
+scale = Vector2(-2.2600374, -1.9051429)
+shape = SubResource("CircleShape2D_lj34g")
+
+[node name="EPrompt" type="Label" parent="Door" unique_id=757996081]
+visible = false
+modulate = Color(0.88453114, 0.88453114, 0.88453114, 1)
+offset_left = 473.0
+offset_top = -57.0
+offset_right = 513.0
+offset_bottom = -33.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.99607843)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6ju70")
+theme_override_styles/focus = SubResource("StyleBoxTexture_fn6bp")
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+paragraph_separator = " "
+text_overrun_behavior = 1
+
+[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
+[connection signal="body_exited" from="Door" to="." method="_on_door_body_exited"]
