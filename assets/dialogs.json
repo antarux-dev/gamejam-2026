@@ -5,7 +5,7 @@
    "voice": "/audio/1.mp3",
    "type": "d",
    "room": "intro",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": ""
  },
  {
@@ -14,7 +14,7 @@
    "voice": "/audio/2.mp3",
    "type": "d",
    "room": "intro",
-   "npc": "receptionist",
+   "npc": "Recepčná",
    "if": ""
  },
  {
@@ -32,7 +32,7 @@
    "voice": "/audio/4.mp3",
    "type": "a",
    "room": "intro",
-   "npc": "receptionist",
+   "npc": "Recepčná",
    "if": ""
  },
  {
@@ -41,7 +41,7 @@
    "voice": "/audio/5.mp3",
    "type": "a",
    "room": "room1",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": ""
  },
  {
@@ -50,7 +50,7 @@
    "voice": "/audio/6.mp3",
    "type": "a",
    "room": "room door",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": "zelene"
  },
  {
@@ -59,7 +59,7 @@
    "voice": "/audio/7.mp3",
    "type": "a",
    "room": "room1",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": "červene"
  },
  {
@@ -68,7 +68,7 @@
    "voice": "/audio/8.mp3",
    "type": "a",
    "room": "room door",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": "zelene"
  },
  {
@@ -86,7 +86,7 @@
    "voice": "/audio/10.mp3",
    "type": "a",
    "room": "room1",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": "pokus isť do červených dverí"
  },
  {
@@ -95,7 +95,7 @@
    "voice": "/audio/11.mp3",
    "type": "a",
    "room": "room1",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": "červene"
  },
  {
@@ -113,7 +113,7 @@
    "voice": "/audio/13.mp3",
    "type": "a",
    "room": "room1",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": "červene"
  },
  {
@@ -122,7 +122,7 @@
    "voice": "/audio/14.mp3",
    "type": "a",
    "room": "room1",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": "červene"
  },
  {
@@ -131,7 +131,7 @@
    "voice": "/audio/15.mp3",
    "type": "a",
    "room": "room door",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": "zelene posledne"
  },
  {
@@ -140,7 +140,7 @@
    "voice": "/audio/16.mp3",
    "type": "d",
    "room": "room1",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": ""
  },
  {
@@ -158,7 +158,7 @@
    "voice": "/audio/18.mp3",
    "type": "d",
    "room": "room1",
-   "npc": "operator",
+   "npc": "Operátor",
    "if": ""
  }
 ]

@@ -1,38 +1,20 @@
 [gd_scene format=3 uid="uid://dkxg57ue8jdsg"]
 
-[ext_resource type="PackedScene" uid="uid://drhaaitups32j" path="res://scenes/Room1.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cwqspp14am5eu" path="res://scenes/game_intro.tscn" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dfj3fl6ejphd" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="Script" uid="uid://mkuf6vsvyf34" path="res://scripts/dialogue.gd" id="3_lnu2h"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_lnu2h"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbhrr"]
-texture = SubResource("CanvasTexture_lnu2h")
+[ext_resource type="PackedScene" uid="uid://bntwyty1xxpp5" path="res://scenes/dialogue_system.tscn" id="3_lbhrr"]
 
 [node name="Node2D" type="Node2D" unique_id=572378975]
 
-[node name="Room1" parent="." unique_id=727619741 instance=ExtResource("1_yqjtg")]
-position = Vector2(0, 0)
+[node name="Node2D" parent="." unique_id=1888647212 instance=ExtResource("1_lnu2h")]
+position = Vector2(-24, 21)
 
 [node name="Player" parent="." unique_id=180648449 instance=ExtResource("2_yqjtg")]
-position = Vector2(18, -9)
+position = Vector2(-23, 16)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=770224462]
 position = Vector2(0, -100)
 zoom = Vector2(2, 2)
 
-[node name="Panel" type="Panel" parent="." unique_id=467102434]
-z_index = -1
-offset_left = 127.0
-offset_top = -167.0
-offset_right = 298.0
-offset_bottom = -90.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_lbhrr")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=598528955]
-offset_left = 128.0
-offset_top = -167.0
-offset_right = 298.0
-offset_bottom = -91.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-script = ExtResource("3_lnu2h")
+[node name="DialogueSystem" parent="." unique_id=2082468134 instance=ExtResource("3_lbhrr")]
+layer = 3

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bntwyty1xxpp5"]
+
+[ext_resource type="Script" uid="uid://mkuf6vsvyf34" path="res://scripts/DialogueSystem.gd" id="1_sofqc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sofqc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3421h"]
+texture = SubResource("CanvasTexture_sofqc")
+
+[node name="DialogueSystem" type="CanvasLayer" unique_id=2082468134]
+script = ExtResource("1_sofqc")
+
+[node name="Panel" type="Panel" parent="." unique_id=982130621]
+modulate = Color(0.7148407, 0.6996019, 0.49912417, 1)
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_3421h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1271154347]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011112342
+anchor_top = 0.21983516
+anchor_right = 0.98321617
+anchor_bottom = 0.94487554
+offset_left = 0.19858265
+offset_top = -29.975277
+offset_right = 0.16418457
+offset_bottom = -29.953949
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+
+[node name="Label" type="Label" parent="Panel" unique_id=1845631951]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.40978652
+anchor_top = 0.7807033
+anchor_right = 0.99478644
+anchor_bottom = 1.0327034
+offset_left = -229.07407
+offset_top = -8.10553
+offset_right = -229.2041
+offset_bottom = -8.037537
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1894545059]
