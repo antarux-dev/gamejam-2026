@@ -160,5 +160,203 @@
    "room": "room1",
    "npc": "Operátor",
    "if": ""
+ },
+ {
+   "id": 19,
+   "text": "Tu sú už iba jedny dvere, tak snáď do nich trafíš.",
+   "voice": "/audio/19.mp3",
+   "type": "a",
+   "room": "room key2",
+   "npc": "Operátor",
+   "if": ""
+ },
+ {
+   "id": 20,
+   "text": "Ajaj, tieto dvere sú zamknuté. Niekde by tu mal byť kľúč. Skús pozrieť v tých bielych skrinkách na začiatku.",
+   "voice": "/audio/20.mp3",
+   "type": "a",
+   "room": "room key2",
+   "npc": "Operátor",
+   "if": "dotyk dverí"
+ },
+ {
+   "id": 21,
+   "text": "Hmm. Tu niesu. Nebudú pri tom pravom stromčeku?",
+   "voice": "/audio/21.mp3",
+   "type": "a",
+   "room": "room key2",
+   "npc": "Operátor",
+   "if": "dotyk skrinky"
+ },
+ {
+   "id": 22,
+   "text": "Pre pána. Niekde tu musia byť! Musia byť pri stole s kreslom.",
+   "voice": "/audio/22.mp3",
+   "type": "a",
+   "room": "room key2",
+   "npc": "Operátor",
+   "if": "dotyk stromčeka"
+ },
+ {
+   "id": 23,
+   "text": "Počuj, ty si zo mňa už ozaj robíš srandu? Kde sú kľúče?",
+   "voice": "/audio/23.mp3",
+   "type": "d",
+   "room": "room key2",
+   "npc": "Róbert",
+   "if": "dotyk stolu"
+ },
+ {
+   "id": 24,
+   "text": "Ale fakt tu niekde je. No tak. Bez neho sa ďalej nepohneme! Pozri ešte poličky pri peniazoch.",
+   "voice": "/audio/24.mp3",
+   "type": "d",
+   "room": "room key2",
+   "npc": "Operátor",
+   "if": "dotyk stolu"
+ },
+ {
+   "id": 25,
+   "text": "Ale ja mám už toho dosť. Prídem si ako nejaký tvoj panáčik, ktorého ovládaš a zabávaš sa. Ja tie dvere vyrazím!",
+   "voice": "/audio/25.mp3",
+   "type": "d",
+   "room": "room key2",
+   "npc": "Róbert",
+   "if": "dotyk poličky"
+ },
+ {
+   "id": 26,
+   "text": "Rozumiem ti. Máš nejaký osobný problém a jediný spôsob ako ho vieš ventilovať je rozbíjať cudzie dvere, ktoré navyše ani nemajú city. Ty vážne nie si v poriadku. Len do toho. Rozbi ich. Uľav si. Ja ti brániť nebudem.",
+   "voice": "/audio/26.mp3",
+   "type": "d",
+   "room": "room key2",
+   "npc": "Operátor",
+   "if": "dotyk poličky"
+ },
+ {
+   "id": 27,
+   "text": "Hmmm. Krása. Keby si namiesto rozbíjania dverí najprv rozmýšľal tou tvojou tekvicou a vyskúšal si, či náhodou nie sú tie dvere otvorené. Ty si ale mentálny atlét.",
+   "voice": "/audio/27.mp3",
+   "type": "a",
+   "room": "room key2",
+   "npc": "Operátor",
+   "if": "dotyk dveri"
+ },
+ {
+   "id": 28,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 29,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 30,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 31,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 32,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 33,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 34,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 35,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 36,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 37,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 38,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 39,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
+ },
+ {
+   "id": 40,
+   "text": "",
+   "voice": "",
+   "type": "",
+   "room": "",
+   "npc": "",
+   "if": ""
  }
 ]
