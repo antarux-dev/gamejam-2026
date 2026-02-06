@@ -7,11 +7,13 @@ var direction: Vector2 = Vector2.ZERO;
 
 var movement_state: String = "idle";
 
+@onready var LocalPLayer = $"."
 @onready var animation_player: AnimationPlayer = $AnimationPlayer;
 @onready var sprite: Sprite2D = $Sprite2D;
 func _ready():
 	DialogueSystem.dialogue_started.connect(func(): Globals.can_move = false)
 	DialogueSystem.dialogue_finished.connect(func(): Globals.can_move = true)
+	Globals.SetLocalPlayer(LocalPLayer)
 	
 # run service frame process
 func _process(_delta: float) -> void:
@@ -34,7 +36,6 @@ func _physics_process(_delta: float) -> void:
 		return
 	
 	move_and_slide();
-	print(sprite.scale)
 	pass;
 	
 func SetDirection() -> bool:
